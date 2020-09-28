@@ -1,0 +1,50 @@
+
+  <div style="padding: 20px;">
+    <mat-card class="example-card" style="margin: auto;">
+      <mat-card-header>
+    
+        <mat-card-title>
+      
+        </mat-card-title>
+     
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div>
+          <h1>Register</h1><hr>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <table>
+                <tr>
+                    <td>  <label for="email">Name :</label></td>
+                    <td><input type="text" formControlName="Name" placeholder="Enter your  name" class="form-control" id="email" ></td>
+                  </tr><br>
+              <tr>
+                <td>  <label for="email">Email :</label></td>
+                <td><input type="email" formControlName="Email" placeholder="Enter your  email" class="form-control" id="email" ></td>
+              </tr>
+              <br>
+              <tr>
+                <td>   <label for="pwd">Password:</label></td>
+                <td><input type="password" formControlName="Password" placeholder="Enter password" class="form-control" id="pwd"></td>
+              </tr>
+              <br>
+            </table>
+        
+            <br>
+         <hr>
+            <br>
+
+            <button  type="submit" mat-button style="background-color: #3f51b5;color: white;margin-left:350px;">Register</button>
+     
+           
+            
+                                            
+        </form>
+        
+        </div>
+      </mat-card-content>
+    
+    </mat-card>
+  
+  </div>
+  <ngx-spinner></ngx-spinner>

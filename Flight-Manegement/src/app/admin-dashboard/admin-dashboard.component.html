@@ -1,0 +1,75 @@
+
+<div style="margin-top: 100px;">
+  <button mat-raised-button (click)="OpenNewBoqItemModel()" style="margin-left: 1100px;margin-bottom: 20px;" > Add flights </button>
+  <table style="width: 80%;margin:auto;"  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+  
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="flightNumber">
+      <th mat-header-cell *matHeaderCellDef> Flight Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.flightNumber}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="company">
+      <th mat-header-cell *matHeaderCellDef> Company </th>
+      <td mat-cell *matCellDef="let element"> {{element.flightCompany}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="origin">
+      <th mat-header-cell *matHeaderCellDef> Origin </th>
+      <td mat-cell *matCellDef="let element"> {{element.origin}} </td>
+    </ng-container>
+    <ng-container matColumnDef="destination">
+        <th mat-header-cell *matHeaderCellDef> Destination </th>
+        <td mat-cell *matCellDef="let element"> {{element.destination}} </td>
+      </ng-container>
+      <ng-container matColumnDef="depatureDate">
+        <th mat-header-cell *matHeaderCellDef> Depature </th>
+        <td mat-cell *matCellDef="let element"> {{element.depatureDate | date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="depatureTime">
+        <th mat-header-cell *matHeaderCellDef> Depature Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.depatureTime }} </td>
+      </ng-container>
+      <ng-container matColumnDef="arrivalTime">
+        <th mat-header-cell *matHeaderCellDef> Arrival Time</th>
+        <td mat-cell *matCellDef="let element"> {{element.arrivalTime }} </td>
+      </ng-container>
+      <ng-container matColumnDef="seats">
+        <th mat-header-cell *matHeaderCellDef> Seats </th>
+        <td mat-cell *matCellDef="let element"> {{element.noOfSeat}} </td>
+      </ng-container>
+         <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element"> <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="onEditClick(element)" mat-menu-item>
+           
+            <span>Edit</span>
+          </button>
+          <button (click)="onDeleteClick(element.id)" mat-menu-item>
+           
+            <span>Delete</span>
+          </button>
+          
+        </mat-menu> </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;let i=index"></tr>
+  
+    <!-- Row shown when there is no matching data. -->
+   
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

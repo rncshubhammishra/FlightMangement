@@ -1,0 +1,35 @@
+<div>
+    <div class="row" style="width: 80%;margin: auto;margin-top: 30px;">
+        <h1>My Orders</h1>
+    </div>
+    <div style="width: 80%;margin: auto;margin-top: 20px;">
+        <mat-card *ngFor="let retunSelection of lstOrders" style="width: 100%;" >
+            <mat-card-header>
+              
+              <mat-card-title>
+              {{retunSelection.flightNumber}} | {{retunSelection.flightCompany}} 
+              </mat-card-title>
+           
+            </mat-card-header>
+            
+            <mat-card-content>
+             <table style="width: 100%; margin: auto;">
+                 <tr>
+                    <td><h4>{{retunSelection.depatureTime}}</h4></td>
+                    <td><h4>{{retunSelection.arrivalTime}}</h4></td>
+                 </tr>
+                 <tr>
+                    <td>{{retunSelection.origin}}</td>
+                    <td>{{retunSelection.destination}}</td>
+                 </tr>
+                 <tr>
+                     {{retunSelection.price}}
+                 </tr>
+                
+             </table>
+            
+            </mat-card-content>
+          
+          </mat-card> 
+    </div>
+</div>

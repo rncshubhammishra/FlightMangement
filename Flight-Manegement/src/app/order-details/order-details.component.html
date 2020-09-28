@@ -1,0 +1,78 @@
+
+  <div style="width: 60%; margin:auto;margin-top: 50px;">
+      <div class="row">
+            <div class="col-6">
+            <td>OrderId :  </td>
+            <td>{{orderId}} </td>
+
+            </div>
+            <div class="col-6">
+              <td>Date : {{getDate()|date}} </td>
+            </div>
+      </div>
+      <div class="row">
+        <p>Depature Flight </p>
+        <mat-card style="width: 100%;" >
+          <mat-card-header>
+            
+            <mat-card-title>
+            {{depatureResult.flightNumber}} | {{depatureResult.flightCompany}} 
+            </mat-card-title>
+         
+          </mat-card-header>
+          
+          <mat-card-content>
+           <table style="width: 100%; margin: auto;">
+               <tr>
+                  <td><h4>{{depatureResult.depatureTime}}</h4></td>
+                  <td><h4>{{depatureResult.arrivalTime}}</h4></td>
+               </tr>
+               <tr>
+                  <td>{{depatureResult.origin}}</td>
+                  <td>{{depatureResult.destination}}</td>
+               </tr>
+            
+              
+           </table>
+          
+          </mat-card-content>
+        
+        </mat-card><br>
+        <p *ngIf="returnResult!=null">Return Fight</p>
+        <mat-card *ngIf="returnResult!=null" style="width: 100%;" >
+          <mat-card-header>
+            
+            <mat-card-title>
+            {{returnResult.flightNumber}} | {{returnResult.flightCompany}} 
+            </mat-card-title>
+         
+          </mat-card-header>
+          
+          <mat-card-content>
+           <table style="width: 100%; margin: auto;">
+               <tr>
+                  <td><h4>{{returnResult.depatureTime}}</h4></td>
+                  <td><h4>{{returnResult.arrivalTime}}</h4></td>
+               </tr>
+               <tr>
+                  <td>{{returnResult.origin}}</td>
+                  <td>{{returnResult.destination}}</td>
+               </tr>
+            
+              
+           </table>
+          
+          </mat-card-content>
+        
+        </mat-card>
+      </div>
+  </div>
+  
+  
+  
+  
+  
+  
+
+  <button style="float: right;margin-right: 300px;margin-top: 30px;background-color: #3f51b5;">Go to home</button>
+  

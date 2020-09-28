@@ -1,0 +1,176 @@
+<div *ngIf="isResult">
+<div class="row">
+  <div class="col-6">
+    <table style="width: 100%;" >
+      <tr>
+        <h1> Depature Flights</h1>
+      </tr>
+      <tr *ngFor="let item of searchResult">
+          <mat-card style="width: 100%;" >
+              <mat-card-header>
+                
+                <mat-card-title>
+                  <input type="radio" value="item.id" (change)="onDepatureSelection(item)" name="selectedTicked"/> {{item.flightNumber}} | {{item.flightCompany}} 
+                </mat-card-title>
+             
+              </mat-card-header>
+              
+              <mat-card-content>
+               <table style="width: 100%; margin: auto;">
+                   <tr>
+                      <td><h4>{{item.depatureTime}}</h4></td>
+                      <td><h4>{{item.arrivalTime}}</h4></td>
+                   </tr>
+                   <tr>
+                      <td>{{item.origin}}</td>
+                      <td>{{item.destination}}</td>
+                   </tr>
+                   <tr>
+                     <h2>Rs. {{item.price}}</h2>
+                   </tr>
+                  
+               </table>
+              
+              </mat-card-content>
+            
+            </mat-card><br>
+      </tr>
+      
+    </table> 
+  </div>
+  <div class="col-6">
+    <table style="width: 100%;" >
+      <tr>
+        <h1> Return Flights</h1>
+      </tr>
+      <tr *ngFor="let item of returnResult">
+          <mat-card style="width: 100%;" >
+              <mat-card-header>
+                
+                <mat-card-title>
+                  <input type="radio" value="item.id" (change)="onReturnSelection(item)" name="retunTickectTicked"/> {{item.flightNumber}} | {{item.flightCompany}} 
+                </mat-card-title>
+             
+              </mat-card-header>
+              
+              <mat-card-content>
+               <table style="width: 100%; margin: auto;">
+                   <tr>
+                      <td><h4>{{item.depatureTime}}</h4></td>
+                      <td><h4>{{item.arrivalTime}}</h4></td>
+                   </tr>
+                   <tr>
+                      <td>{{item.origin}}</td>
+                      <td>{{item.destination}}</td>
+                   </tr>
+                   <tr>
+                     <h2>Rs. {{item.price}}</h2>
+                   </tr>
+                  
+               </table>
+             
+              </mat-card-content>
+            
+            </mat-card>
+            <br>
+      </tr>
+      
+    </table> 
+  </div>
+</div>
+<div style="float: right;">
+  <button type="button" (click)="onBookClick()"  >Book</button>
+</div>
+</div>
+
+<diV style="margin-top: 30px;" *ngIf="!isResult">
+<div class="row">
+  <div class="col-8">
+    <h1>Itinerary</h1>
+    <mat-card style="width: 100%;" >
+      <mat-card-header>
+        
+        <mat-card-title>
+          {{depatureSelection.flightNumber}} | {{depatureSelection.flightCompany}} 
+        </mat-card-title>
+     
+      </mat-card-header>
+      
+      <mat-card-content>
+       <table style="width: 100%; margin: auto;">
+           <tr>
+              <td><h4>{{depatureSelection.depatureTime}}</h4></td>
+              <td><h4>{{depatureSelection.arrivalTime}}</h4></td>
+           </tr>
+           <tr>
+              <td>{{depatureSelection.origin}}</td>
+              <td>{{depatureSelection.destination}}</td>
+           </tr>
+          
+          
+       </table>
+      
+      </mat-card-content>
+    
+    </mat-card>
+    <br>
+    <mat-card *ngIf="retunSelection!=null" style="width: 100%;" >
+      <mat-card-header>
+        
+        <mat-card-title>
+        {{retunSelection.flightNumber}} | {{retunSelection.flightCompany}} 
+        </mat-card-title>
+     
+      </mat-card-header>
+      
+      <mat-card-content>
+       <table style="width: 100%; margin: auto;">
+           <tr>
+              <td><h4>{{retunSelection.depatureTime}}</h4></td>
+              <td><h4>{{retunSelection.arrivalTime}}</h4></td>
+           </tr>
+           <tr>
+              <td>{{retunSelection.origin}}</td>
+              <td>{{retunSelection.destination}}</td>
+           </tr>
+        
+          
+       </table>
+      
+      </mat-card-content>
+    
+    </mat-card><br>
+  </div>
+  <div class="col-4">
+    <h1>Fare Summary</h1>
+    <span >
+      <table>
+       <tr>
+         <td>Base Fare </td>
+         <td>{{getBaseFare()}} </td><br>
+        
+       
+       </tr>
+       <tr>
+        <td>Tax</td>
+         <td>{{gstAmount}} </td><br>
+         </tr>
+         <tr>
+        <td>Totle</td>
+         <td>Rs. {{totalAmount}} </td>
+         </tr>
+       
+      </table>
+     
+      
+    </span>
+    <button type="submit" (click)="OpenModel()">Continue</button>
+   
+  
+  </div>
+  
+</div>
+</diV>
+
+
+

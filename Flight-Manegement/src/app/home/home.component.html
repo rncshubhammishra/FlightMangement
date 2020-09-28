@@ -1,0 +1,85 @@
+
+  <div style="padding: 20px;width: 40%;margin: auto;">
+    <mat-card class="example-card" style="margin: auto;">
+      <mat-card-header>
+    
+        <mat-card-title>
+      
+        </mat-card-title>
+     
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div>
+          <h1>Search Flights</h1><hr>
+          <form [formGroup]="searchFlightForm" (ngSubmit)="onSubmit()">
+            <table>
+              <tr>
+                <td>  <label for="email">From :</label></td>
+                <td><input type="text" formControlName="origin" placeholder="From" class="form-control" id="email" >
+                  <div  *ngIf="searchFlightForm.invalid" style="color: red;">                                           
+                    <span *ngIf="hasError('origin', 'required') && searchFlightForm.controls['origin'].touched">Origin cannot be empty</span>                                        
+                </div>
+                </td>
+              </tr>
+              <br>
+              <tr>
+                <td>   <label for="pwd">To :</label></td>
+                <td><input type="text" formControlName="destination" placeholder="To" class="form-control" id="pwd">
+                  <div  *ngIf="searchFlightForm.invalid" style="color: red;">                                           
+                    <span *ngIf="hasError('destination', 'required') && searchFlightForm.controls['destination'].touched">Destination cannot be empty</span>                                        
+                </div>
+                </td>
+              </tr>
+              <br>
+              <tr>
+                <td>   <label for="pwd">Depature Date :</label></td>
+                <td><input type="date" formControlName="depatureDate" placeholder="Depature Date" class="form-control" id="pwd">
+                  <div  *ngIf="searchFlightForm.invalid" style="color: red;">                                           
+                    <span *ngIf="hasError('depatureDate', 'required') &&  searchFlightForm.controls['depatureDate'].touched">Please select depatureDate</span>                                        
+                </div>
+                </td>
+              </tr>
+              <br>
+              <tr *ngIf="isRoundTrip">
+                <td>   <label for="pwd">Return Date :</label></td>
+                <td><input type="date" formControlName="returnDate" placeholder="Depature Date" class="form-control" id="pwd"></td>
+              </tr>
+              <br>
+              <tr>
+                <td>   <label for="pwd">No of Seats:</label></td>
+                <td><input type="number" formControlName="seats" placeholder="No of seats" class="form-control" id="pwd">
+                  <div  *ngIf="searchFlightForm.invalid" style="color: red;">                                           
+                    <span *ngIf="hasError('seats', 'required') && searchFlightForm.controls['seats'].touched">Please select seats</span>                                        
+                </div></td>
+              </tr>
+              <br>
+              <tr>
+                <td>   </td>
+                <td><input type="radio" (change)="isRoundTrip=false;" formControlName="roundTrip" value="oneway" name="roundTrip"/> <label for="pwd">One Way</label> <input name="roundTrip" (change)="isRoundTrip=true;" formControlName="roundTrip" type="radio" value="return"/> <label for="pwd">Return</label>
+                  <div  *ngIf="searchFlightForm.invalid" style="color: red;">                                           
+                    <span *ngIf="hasError('roundTrip', 'required') && searchFlightForm.controls['roundTrip'].touched">Please select seats</span>                                        
+                </div>
+                </td>
+              </tr>
+              <br>
+            </table>
+        
+            <br>
+         <hr>
+            <br>
+
+            <button  type="submit" mat-button style="background-color: #3f51b5;color: white;margin-left:400px;">Search</button>
+     
+           
+            
+                                            
+        </form>
+        
+        </div>
+      </mat-card-content>
+    
+    </mat-card>
+  
+  </div>
+  <ngx-spinner></ngx-spinner>

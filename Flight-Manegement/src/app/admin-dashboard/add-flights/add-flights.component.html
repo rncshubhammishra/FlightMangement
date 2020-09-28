@@ -1,0 +1,93 @@
+<div>
+<h1>{{data.type}} Flights</h1><hr>
+    <form [formGroup]="flightDetailsForm" (ngSubmit)="onSubmitClick()">
+      <table style="margin:auto;">
+        <tr>
+          <td>Flight Number :</td>
+          <td><input type="text" class="form-control" formControlName="flightNumber" placeholder="Enter flight number"/>
+            <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+              <span *ngIf="hasError('flightNumber', 'required') && flightDetailsForm.controls['flightNumber'].touched">flight no can not be empty</span>                                        
+          </div>
+          </td><br>
+        </tr>
+        <tr>
+          <td>Company :</td>
+          <td><input type="text" class="form-control" formControlName="company" placeholder="Enter company name"/>
+            <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+              <span *ngIf="hasError('company', 'required') && flightDetailsForm.controls['company'].touched">company cannot be empty</span>                                        
+          </div>
+          </td><br>
+        </tr>
+        <tr>
+          <td>No. of avilable seats :</td>
+          <td> <input type="text" class="form-control" formControlName="seats" placeholder="Enter no of seats"/>
+            <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+              <span *ngIf="hasError('seats', 'required') && flightDetailsForm.controls['seats'].touched">Please enter no of seats</span>                                        
+          </div>
+          </td><br>
+        </tr>
+        <tr>
+          <td>Origin :</td>
+          <td> <input type="text" class="form-control" formControlName="origin" placeholder="Enter origin"/>
+            <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+              <span *ngIf="hasError('origin', 'required') && flightDetailsForm.controls['origin'].touched">Enter origin</span>                                        
+          </div>
+          </td><br>
+        </tr>
+        <tr>
+        <td>Destination :</td>
+        <td> <input type="text" class="form-control" formControlName="destination" placeholder="Enter Destination"/>
+          <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+            <span *ngIf="hasError('destination', 'required') && flightDetailsForm.controls['destination'].touched">Enter Destination</span>                                        
+        </div>
+        </td><br>
+      </tr>
+      <tr>
+        <td>Date of departure : </td>
+        <td><input type="date" class="form-control" formControlName="depatureDate" placeholder="Enter departure date"/>
+          <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+            <span *ngIf="hasError('depatureDate', 'required') && flightDetailsForm.controls['depatureDate'].touched">Enter departure date</span>                                        
+        </div>
+        </td><br>
+      </tr>
+      <tr>
+        <td>Depature Time : </td>
+        <td><input type="text" class="form-control" formControlName="depatureTime" placeholder="formate(hh:mm)"/>
+          <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+            <span *ngIf="hasError('depatureTime', 'required') && flightDetailsForm.controls['depatureTime'].touched">Enter depature time</span>                                        
+        </div></td><br>
+      
+      </tr>
+         
+          <tr>
+            <td>Arrival Time : </td>
+            <td><input type="text" class="form-control"  formControlName="arrivalTime" placeholder="formate(hh:mm)"/>
+              <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+                <span *ngIf="hasError('arrivalTime', 'required') && flightDetailsForm.controls['arrivalTime'].touched">Enter Arrival time</span>                                        
+            </div>
+            </td><br>
+          </tr>
+          <tr>
+           
+        <td>Price : </td>
+        <td> <input type="number" class="form-control" formControlName="price" placeholder="Enter price"/>
+          <div  *ngIf="flightDetailsForm.invalid" style="color: red;">                                           
+            <span *ngIf="hasError('price', 'required') && flightDetailsForm.controls['price'].touched">Enter price</span>                                        
+        </div>
+        </td><br>
+      </tr>
+      
+      </table>
+
+      <hr>
+      <div style="float: right;">
+        <button type="button" (click)="onNoClick()" > Cancel </button>
+        <button mat-raised-button type="submit" > Submit </button>
+      </div>
+    
+
+      
+     
+    </form>
+
+</div>

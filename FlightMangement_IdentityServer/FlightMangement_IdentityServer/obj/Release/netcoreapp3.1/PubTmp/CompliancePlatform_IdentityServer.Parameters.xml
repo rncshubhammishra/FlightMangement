@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="essendis-compliance-identity" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\shubham\\Client\ Micheal\\latest\\CompliancePlatform_IdentityServer\\CompliancePlatform_IdentityServer\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
